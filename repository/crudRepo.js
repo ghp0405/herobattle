@@ -19,7 +19,7 @@ exports.InsertCustomers = async function(name, age, password, txConnection) {
 
     try {
         const query =
-            ` INSERT INTO customers SET ? V FROM customers; `;
+            ` INSERT INTO customers SET ? `;
         const data = {
             name: name,
             age: age,
