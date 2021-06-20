@@ -1,8 +1,4 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
+@import "reset.css";
+@import "base.css";
+@import "common.css";
+@import "main.css";
