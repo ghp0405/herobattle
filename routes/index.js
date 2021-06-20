@@ -14,6 +14,18 @@ router.get('/', async function(req, res, next) {
 
 });
 
+/**  **/
+router.get('/', async function(req, res, next) {
+
+  // function(txYn = false, txConnection = undefined)
+  const dbResult = await crudRepo.SelectCustomers();
+
+  res.render('index', { title: 'Express', data: dbResult });
+
+  return true;
+
+});
+
 /** 고객 정보 삽입 **/
 router.post('/', async function(req, res, next) {
 
@@ -25,5 +37,6 @@ router.post('/', async function(req, res, next) {
   return true;
 
 });
+
 
 module.exports = router;
