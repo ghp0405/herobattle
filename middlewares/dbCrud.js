@@ -12,7 +12,8 @@ function createPool() {
         host: 'localhost',
         user: 'root',
         database: 'test',
-        password: 'ccp@24865',
+        password: 'ccp24865',
+        port: 3306,
         connectionLimit: 100
     });
     return pool;
@@ -40,7 +41,7 @@ async function execute(query, txConnection) {
                 console.error("err : " + err);
                 return false;
             }
-            await connection.execute(query, function (err, rows) {
+            await connection.query(query, function (err, rows) {
                 if (err) {
                     console.error("err : " + err);
                     return false;
