@@ -5,8 +5,7 @@ const crudRepo = require('../repository/crudRepo');
 /* GET home page. */
 router.get('/', async function(req, res, next) {
 
-  // function(txYn = false, txConnection = undefined)
-  const dbResult = await crudRepo.SelectCustomers();
+  const dbResult = await crudRepo.SelectCustomers('');
 
   res.render('index', { title: 'Express', data: dbResult });
 

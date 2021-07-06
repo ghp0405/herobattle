@@ -5,7 +5,7 @@ exports.SelectCustomers = async function(txConnection) {
     try {
         const query =
             ` SELECT id, name, age, password FROM customers; `;
-        const [result] = await db.execute(query, txConnection);
+        const result = await db.execute(query, txConnection);
 
         return result;
     } catch (e) {
