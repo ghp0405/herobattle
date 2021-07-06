@@ -1,0 +1,31 @@
+/* 정렬 */
+.clearfix::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+
+/* 글자 정렬 */
+.text-right {
+    text-align: right;
+}
+.text-left {
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
+
+/* 가로 */
+.w50 {
+    width: 50%;
+}
+.w25 {
+    width: 25%;
+}

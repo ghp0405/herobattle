@@ -1,0 +1,72 @@
+html, body {
+    font-size: 14px;
+    background-color: #222;
+}
+
+#wrap {
+    width: 100%;
+    height: 100%;
+}
+
+.bg {
+    background-color: #f7f7f7;
+}
+
+.main-tit {
+    font-size: 56px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.play-display {
+    width: 1400px;
+    margin: 0 auto;
+}
+.play-display .card {
+    float: left;
+    padding: 30px;
+}
+.play-display .card .card-inner {
+    position: relative;
+}
+.play-display .card .card-inner .class-tit {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px 0;
+}
+.play-display .card .card-inner .class-img {
+    
+}
+.play-display .card .card-inner .class-img img {
+    display: block;
+    width: 100%;
+}
+.play-display .card .card-inner .class-stat {
+    position: absolute;
+    top: 60px;
+    right: 15px;
+}
+.play-display .card .card-inner .class-stat span {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #222;
+    margin-top: 15px;
+}
+.play-display .card .card-inner .class-skill {
+    
+}
+.play-display .card .card-inner .class-skill.skill-01 {
+    
+}
+.play-display .card .class-skill.skill-02 {
+    
+}
+.play-display .card .class-skill.skill-03 {
+    
+}
+.play-display .card .class-skill.skill-04 {
+    
+}
