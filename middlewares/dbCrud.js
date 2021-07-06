@@ -17,29 +17,47 @@ const dbConfig = {
 const pool = mysql.createPool(dbConfig);
 
 // ?를 사용하지 않는 모든 쿼리에 대한 쿼리 실행함수
-let execute = async (query, params, txConnection) => {
-    if(txConnection != undefined && txConnection != "undefined"){
-        let [rows] = await txConnection.execute(query, params);
+let execute = async (query, txConnection) => {
+    if(txConnection != ''){
+        let [rows] = await txConnection.execute(query);
         return rows;
     } else {
-        let connection = await pool.getConnection();
-        let [rows] = await connection.execute(query, params);
-        connection.release();
-        return rows;
+        let connection = await pool.getConnection(async conn => conn);
+        try {
+            await connection.beginTransaction();
+            let [rows] = await connection.execute(query);
+            await connection.commit();
+            connection.release();
+            return rows;
+        } catch(err){
+            await connection.rollback();
+            connection.release();
+            console.log('Query Error');
+            return false;
+        }
     }
 }
 
 // ?를 사용하는 모든 쿼리에 대한 쿼리 실행함수
 // insert, update, delete 등에 대한 affectedRows는 어떻게 받아오는지 연구 필요
 let query = async (query, params, txConnection) => {
-    if(txConnection != undefined && txConnection != "undefined"){
+    if(txConnection != ''){
         let [rows] = await txConnection.query(query, params);
         return rows;
     } else {
-        let connection = await con.getConnection();
-        let [rows] = await connection.query(query, params);
-        connection.release();
-        return rows;
+        let connection = await pool.getConnection(async conn => conn);
+        try {
+            await connection.beginTransaction();
+            let [rows] = await connection.query(query, params);
+            await connection.commit();
+            connection.release();
+            return rows;
+        } catch(err){
+            await connection.rollback();
+            connection.release();
+            console.log('Query Error');
+            return false;
+        }
     }
 }
 
